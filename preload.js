@@ -113,6 +113,7 @@ contextBridge.exposeInMainWorld('boxshelf', {
   raProgress: (systemId, title, force) => call('ra:progress', { systemId, title, force }),
   raShelf: (systemId, titles) => call('ra:shelf', { systemId, titles }),
   raProfile: () => call('ra:profile'),
+  raTrophies: force => call('ra:trophies', { force: !!force }), // (fork) the whole account: games, recent unlocks, rarity
   raEnabled: () => call('ra:enabled'),
   findModel: (systemId, name, site) => call('models:find', { systemId, name, site }),
   onModelInstalled: fn => ipcRenderer.on('models:installed', (e, r) => fn(r)),
